@@ -261,6 +261,7 @@ read it before opening a new issue about your will.")
                                           (list :height dracula-height-title-3)))
                (gemini-heading-face-rest :weight normal :foreground ,dracula-yellow)
                (gemini-quote-face :foreground ,dracula-purple)
+               (gemini-ulist-face :inherit default)
                ;; gnus-group
                (gnus-group-mail-1 :foreground ,dracula-pink :weight bold)
                (gnus-group-mail-1-empty :inherit gnus-group-mail-1 :weight normal)
