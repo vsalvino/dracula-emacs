@@ -78,8 +78,8 @@ read it before opening a new issue about your will.")
 
 ;; Assigment form: VARIABLE COLOR [256-COLOR [TTY-COLOR]]
 (let ((colors '(;; Upstream theme color
-                (dracula-bg      "#282a36" "unspecified-bg" "unspecified-bg") ; official background
-                (dracula-fg      "#f8f8f2" "#ffffff" "brightwhite") ; official foreground
+                (dracula-bg      "#1B1D29" "unspecified-bg" "unspecified-bg") ; official background
+                (dracula-fg      "#d8d8d2" "#ffffff" "brightwhite") ; official foreground
                 (dracula-current "#44475a" "#303030" "brightblack") ; official current-line/selection
                 (dracula-comment "#6272a4" "#5f5faf" "blue")        ; official comment
                 (dracula-cyan    "#8be9fd" "#87d7ff" "brightcyan")  ; official cyan
@@ -127,10 +127,10 @@ read it before opening a new issue about your will.")
                (header-line :background ,dracula-bg)
                ;; syntax
                (font-lock-builtin-face :foreground ,dracula-orange)
-               (font-lock-comment-face :inherit shadow)
-               (font-lock-comment-delimiter-face :inherit shadow)
+               (font-lock-comment-face :inherit shadow :slant italic)
+               (font-lock-comment-delimiter-face :inherit shadow :slant normal)
                (font-lock-constant-face :foreground ,dracula-cyan)
-               (font-lock-doc-face :foreground ,dracula-comment)
+               (font-lock-doc-face :foreground ,dracula-comment :slant italic)
                (font-lock-function-name-face :foreground ,dracula-green :weight bold)
                (font-lock-keyword-face :foreground ,dracula-pink :weight bold)
                (font-lock-negation-char-face :foreground ,dracula-cyan)
@@ -493,7 +493,7 @@ read it before opening a new issue about your will.")
                (markdown-blockquote-face :foreground ,dracula-purple)
                (markdown-code-face :foreground ,dracula-orange)
                (markdown-footnote-face :foreground ,other-blue)
-               (markdown-header-face :weight normal)
+               (markdown-header-face :weight bold :background nil)
                (markdown-header-face-1
                 :inherit bold :foreground ,dracula-pink
                 ,@(when dracula-enlarge-headings
@@ -671,6 +671,24 @@ read it before opening a new issue about your will.")
                (rpm-spec-section-face :foreground ,dracula-yellow)
                (rpm-spec-tag-face :foreground ,dracula-cyan)
                (rpm-spec-var-face :foreground ,dracula-orange)
+               ;; rst
+               (rst-level-1
+                :inherit bold :foreground ,dracula-pink
+                ,@(when dracula-enlarge-headings
+                    (list :height dracula-height-title-1)))
+               (rst-level-2
+                :inherit bold :foreground ,dracula-purple
+                ,@(when dracula-enlarge-headings
+                    (list :height dracula-height-title-2)))
+               (rst-level-3
+                :foreground ,dracula-green
+                ,@(when dracula-enlarge-headings
+                    (list :height dracula-height-title-3)))
+               (rst-level-4 :foreground ,dracula-yellow)
+               (rst-level-5 :foreground ,dracula-cyan)
+               (rst-level-6 :foreground ,dracula-orange)
+               (rst-level-7 :foreground ,other-blue)
+               (rst-level-8 :foreground ,dracula-fg)
                ;; selectrum-mode
                (selectrum-current-candidate :weight bold)
                (selectrum-primary-highlight :foreground ,dracula-pink)
