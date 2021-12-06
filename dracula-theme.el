@@ -97,12 +97,14 @@ read it before opening a new issue about your will.")
                 (fg3             "#ccccc7" "#c6c6c6" "white")
                 (fg4             "#b6b6b2" "#b2b2b2" "white")
                 (other-blue      "#0189cc" "#0087ff" "brightblue")))
-      (faces '(;; default
+      (faces '(;; default / basic faces
                (cursor :background ,fg3)
                (default :background ,dracula-bg :foreground ,dracula-fg)
                (default-italic :slant italic)
+               (error :foreground ,dracula-red)
                (ffap :foreground ,fg4)
                (fringe :background ,dracula-bg :foreground ,fg4)
+               (header-line :background ,dracula-bg)
                (highlight :foreground ,fg3 :background ,bg3)
                (hl-line :background ,dracula-current :extend t)
                (info-quoted-name :foreground ,dracula-orange)
@@ -119,13 +121,12 @@ read it before opening a new issue about your will.")
                (read-multiple-choice-face :inherit completions-first-difference)
                (region :inherit match :extend t)
                (shadow :foreground ,dracula-comment)
-               (trailing-whitespace :foreground "unspecified-fg" :background ,dracula-orange)
-               (vertical-border :foreground ,bg2)
                (success :foreground ,dracula-green)
+               (tooltip :foreground ,dracula-fg :background ,dracula-current)
+               (trailing-whitespace :background ,dracula-orange)
+               (vertical-border :foreground ,bg2)
                (warning :foreground ,dracula-orange)
-               (error :foreground ,dracula-red)
-               (header-line :background ,dracula-bg)
-               ;; syntax
+               ;; syntax / font-lock
                (font-lock-builtin-face :foreground ,dracula-orange)
                (font-lock-comment-face :inherit shadow :slant italic)
                (font-lock-comment-delimiter-face :inherit shadow :slant normal)
@@ -153,7 +154,7 @@ read it before opening a new issue about your will.")
                                        :foreground ,dracula-green)
                (company-scrollbar-bg :background ,dracula-comment)
                (company-scrollbar-fg :foreground ,other-blue)
-               (company-tooltip :foreground ,dracula-fg :background ,dracula-current)
+               (company-tooltip :inherit tooltip)
                (company-tooltip-search :foreground ,dracula-green
                                        :underline t)
                (company-tooltip-search-selection :background ,dracula-green
@@ -323,7 +324,7 @@ read it before opening a new issue about your will.")
                (helm-grep-file :foreground ,dracula-fg :background ,dracula-bg)
                (helm-grep-finish :foreground ,fg2 :background ,dracula-bg)
                (helm-grep-lineno :foreground ,dracula-fg :background ,dracula-bg)
-               (helm-grep-match :foreground "unspecified-fg" :background "unspecified-bg" :inherit helm-match)
+               (helm-grep-match :inherit match)
                (helm-grep-running :foreground ,dracula-green :background ,dracula-bg)
                (helm-header :foreground ,fg2 :background ,dracula-bg :underline nil :box nil)
                (helm-moccur-buffer :foreground ,dracula-green :background ,dracula-bg)
@@ -535,13 +536,12 @@ read it before opening a new issue about your will.")
                           :box ,dracula-current :inverse-video nil
                           ,@(if dracula-alternate-mode-line-and-minibuffer
                                 (list :foreground fg3)
-                              (list :foreground "unspecified-fg")))
+                              (list :foreground dracula-fg)))
                (mode-line-inactive
-                :inverse-video nil
+                :background ,dracula-bg :inverse-video nil
                 ,@(if dracula-alternate-mode-line-and-minibuffer
-                      (list :foreground dracula-comment :background dracula-bg
-                            :box dracula-bg)
-                    (list :foreground dracula-fg :background bg2 :box bg2)))
+                      (list :foreground dracula-comment :box dracula-bg)
+                    (list :foreground fg4 :box bg2)))
                ;; mu4e
                (mu4e-unread-face :foreground ,dracula-pink :weight normal)
                (mu4e-view-url-number-face :foreground ,dracula-purple)
